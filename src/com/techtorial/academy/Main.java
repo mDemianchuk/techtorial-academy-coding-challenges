@@ -1,13 +1,16 @@
 package com.techtorial.academy;
 
-import java.util.Arrays;
-
 public class Main {
 
     public static void main(String[] args) {
+        System.out.println("=== swapNums ===");
         swapNums();
+        System.out.println("\n=== swapStrings ===");
         swapStrings();
+        System.out.println("\n=== secondLargest ===");
         secondLargest();
+        System.out.println("\n=== numberOfAlphaChars ===");
+        numberOfAlphaChars();
     }
 
     private static void swapNums() {
@@ -35,9 +38,35 @@ public class Main {
     }
 
     private static void secondLargest() {
-        int[] arr = {5, 6, -2, 1, 10, 20, 1, 4};
-        Arrays.sort(arr);
-        int secondLargest = arr[arr.length - 2];
+        int[] arr = {5, 5, 5, 1, 4, 2, 8, 9, 9};
+
+        int largest = arr[0];
+        int secondLargest = Integer.MIN_VALUE;
+
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] >= largest) {
+                secondLargest = largest;
+                largest = arr[i];
+            }
+        }
+
+        System.out.println(largest);
         System.out.println(secondLargest);
+    }
+
+    private static void numberOfAlphaChars() {
+        String s = "123wdasd102e=1-!!##$%k1mf01f191f";
+
+        int counter = 0;
+
+        for (int i = 0; i < s.length(); i++) {
+            s = s.toLowerCase();
+            char currentChar = s.charAt(i);
+            if (currentChar >= 'a' && currentChar <= 'z') {
+                counter++;
+            }
+        }
+
+        System.out.println(counter);
     }
 }
