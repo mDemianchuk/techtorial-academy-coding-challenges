@@ -1,5 +1,7 @@
 package com.techtorial.academy;
 
+import java.util.Arrays;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -11,6 +13,10 @@ public class Main {
         secondLargest();
         System.out.println("\n=== numberOfAlphaChars ===");
         numberOfAlphaChars();
+        System.out.println("\n=== reverseString ===");
+        reverseString();
+        System.out.println("\n=== reverseStringWordByWord ===");
+        reverseStringWordByWord();
     }
 
     private static void swapNums() {
@@ -68,5 +74,36 @@ public class Main {
         }
 
         System.out.println(counter);
+    }
+
+    private static void reverseString() {
+        String str = "I love Java";
+        String reverse = "";
+        // Iterate over characters of the string starting from the end
+        for (int i = str.length() - 1; i >= 0; i--) {
+            reverse += str.charAt(i);
+        }
+        System.out.println(reverse);
+    }
+
+    private static void reverseStringWordByWord() {
+        String str = "I love Java";
+        // Create an array with individual words
+        String[] words = str.split(" ");
+        // Create a variable to hold the reversed string
+        String reverse = "";
+        // Iterate over the words
+        for (int i = 0; i <= words.length - 1; i++) {
+            // Get the word at index i
+            String word = words[i];
+            // Iterate over characters of the word starting from the end
+            for (int j = word.length() - 1; j >= 0; j--) {
+                reverse += word.charAt(j);
+            }
+            // When we iterated over the word, add a space to separate the words
+            reverse += " ";
+        }
+        // When iterated over all words, print the reversed string
+        System.out.println(reverse);
     }
 }
