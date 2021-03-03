@@ -15,6 +15,8 @@ public class Main {
         reverseString();
         System.out.println("\n=== reverseStringWordByWord ===");
         reverseStringWordByWord();
+        System.out.println("\n=== palindrome ===");
+        palindrome();
     }
 
     private static void swapNums() {
@@ -103,5 +105,18 @@ public class Main {
         }
         // When iterated over all words, print the reversed string
         System.out.println(reverse);
+    }
+
+    private static void palindrome() {
+        boolean isPalindrome = true;
+        String palindrome = "dad";
+
+        for (int i = 0; i < palindrome.length() / 2; i++) {
+            if(palindrome.charAt(i) != palindrome.charAt(palindrome.length() - 1 - i)) {
+                isPalindrome = false;
+            }
+        }
+
+        System.out.println(isPalindrome);
     }
 }
