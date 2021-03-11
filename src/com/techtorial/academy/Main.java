@@ -1,5 +1,8 @@
 package com.techtorial.academy;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -17,6 +20,12 @@ public class Main {
         reverseStringWordByWord();
         System.out.println("\n=== palindrome ===");
         palindrome();
+        System.out.println("\n=== isPrime ===");
+        for (int i = 2; i <= 12; i++) {
+            isPrime(i);
+        }
+        System.out.println("\n=== characterCount ===");
+        characterCount();
     }
 
     private static void swapNums() {
@@ -118,5 +127,38 @@ public class Main {
         }
 
         System.out.println(isPalindrome);
+    }
+
+    private static void isPrime(int number) {
+        boolean isPrime = true;
+        for (int divisor = 2; divisor < number; divisor++) {
+            if(number % divisor == 0) {
+                isPrime = false;
+                break;
+            }
+        }
+
+        if(isPrime) {
+            System.out.println(number + " is prime");
+        } else {
+            System.out.println(number + " is not prime");
+        }
+    }
+
+    private static void characterCount() {
+        String str = "Hello world";
+        Map<Character, Integer> counter = new HashMap<>();
+
+        for (int i = 0; i < str.length(); i++) {
+            char currentChar = str.charAt(i);
+            if(counter.containsKey(currentChar)) {
+                int currentNumberOfOccurrences = counter.get(currentChar);
+                counter.put(currentChar, currentNumberOfOccurrences + 1);
+            } else {
+                counter.put(currentChar, 1);
+            }
+        }
+
+        System.out.println(counter);
     }
 }
